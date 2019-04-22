@@ -26,7 +26,7 @@ public class tipo extends JFrame {
         //setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         JLabel lblSeleccioneTipo = new JLabel("SELECCIONA UN TIPO");
-        lblSeleccioneTipo.setForeground(java.awt.Color.white);
+        lblSeleccioneTipo.setForeground(java.awt.Color.black);
         lblSeleccioneTipo.setFont(new Font("Castellar", Font.BOLD, 25));
         lblSeleccioneTipo.setBounds(20, 350, 370, 86);
         contentPane.add(lblSeleccioneTipo);

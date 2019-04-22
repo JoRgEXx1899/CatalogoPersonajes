@@ -35,25 +35,25 @@ public class Vista extends JFrame {
                 
 		JLabel lblEspecialidad = new JLabel("Tipo:");
 		lblEspecialidad.setFont(new Font("Springtime Sunshine", Font.BOLD, 18));
-                lblEspecialidad.setForeground(java.awt.Color.white);
+                lblEspecialidad.setForeground(java.awt.Color.black);
 		lblEspecialidad.setBounds(30, 30, 75, 26);
 		contentPane.add(lblEspecialidad);
 		
 		JLabel lblVida = new JLabel("Vida:");
 		lblVida.setFont(new Font("Brodway", Font.BOLD, 18));
-                lblVida.setForeground(java.awt.Color.white);
+                lblVida.setForeground(java.awt.Color.black);
 		lblVida.setBounds(30, 50, 75, 26);
 		contentPane.add(lblVida);
 		
 		JLabel lblEscudo = new JLabel("Escudo:");
 		lblEscudo.setFont(new Font("Brodway", Font.BOLD, 18));
-                lblEscudo.setForeground(java.awt.Color.white);
+                lblEscudo.setForeground(java.awt.Color.black);
 		lblEscudo.setBounds(30,70, 75, 26);
 		contentPane.add(lblEscudo);
 		
 		JLabel lblAtaque = new JLabel("Ataque:");
 		lblAtaque.setFont(new Font("Brodway", Font.BOLD, 18));
-                lblAtaque.setForeground(java.awt.Color.white);
+                lblAtaque.setForeground(java.awt.Color.black);
 		lblAtaque.setBounds(30, 90, 75, 26);
 		contentPane.add(lblAtaque);
 		
@@ -65,49 +65,49 @@ public class Vista extends JFrame {
                 
                 JLabel lblVelocidad = new JLabel("Vel. Mov:");
 		lblVelocidad.setFont(new Font("Brodway", Font.BOLD, 18));
-                lblVelocidad.setForeground(java.awt.Color.white);
+                lblVelocidad.setForeground(java.awt.Color.black);
 		lblVelocidad.setBounds(30, 110, 90, 26);
 		contentPane.add(lblVelocidad);
                 
                 JLabel lblArma = new JLabel("Arma:");
 		lblArma.setFont(new Font("Springtime Sunshine", Font.BOLD, 18));
-                lblArma.setForeground(java.awt.Color.white);
+                lblArma.setForeground(java.awt.Color.black);
 		lblArma.setBounds(30, 150, 75, 26);
 		contentPane.add(lblArma);
                 
 		JLabel Especialidadreal = new JLabel("");
 		Especialidadreal.setFont(new Font("Brodway", Font.BOLD, 18));
-                Especialidadreal.setForeground(java.awt.Color.white);
+                Especialidadreal.setForeground(java.awt.Color.black);
 		Especialidadreal.setBounds(130, 30, 142, 26);
 		contentPane.add(Especialidadreal);
 		
 		JLabel Vidareal = new JLabel("");
 		Vidareal.setFont(new Font("Brodway", Font.BOLD, 18));
-                Vidareal.setForeground(java.awt.Color.white);
+                Vidareal.setForeground(java.awt.Color.black);
 		Vidareal.setBounds(130, 50, 142, 26);
 		contentPane.add(Vidareal);
 		
 		JLabel Escudoreal = new JLabel("");
 		Escudoreal.setFont(new Font("Brodway", Font.BOLD, 18));
-                Escudoreal.setForeground(java.awt.Color.white);
+                Escudoreal.setForeground(java.awt.Color.black);
 		Escudoreal.setBounds(130, 70, 142, 26);
 		contentPane.add(Escudoreal);
 		
 		JLabel Ataquereal = new JLabel("");
 		Ataquereal.setFont(new Font("Brodway", Font.BOLD, 18));
-                Ataquereal.setForeground(java.awt.Color.white);
+                Ataquereal.setForeground(java.awt.Color.black);
 		Ataquereal.setBounds(130, 90, 142, 26);
 		contentPane.add(Ataquereal);
 		
                 JLabel Velocidadreal = new JLabel("");
 		Velocidadreal.setFont(new Font("Brodway", Font.BOLD, 18));
-                Velocidadreal.setForeground(java.awt.Color.white);
+                Velocidadreal.setForeground(java.awt.Color.black);
 		Velocidadreal.setBounds(130, 110, 142, 26);
 		contentPane.add(Velocidadreal);
                 
                 JLabel Armareal = new JLabel("");
 		Armareal.setFont(new Font("Brodway", Font.BOLD, 18));
-                Armareal.setForeground(java.awt.Color.white);
+                Armareal.setForeground(java.awt.Color.black);
 		Armareal.setBounds(95, 150, 200, 26);
 		contentPane.add(Armareal);
                 
@@ -130,9 +130,10 @@ public class Vista extends JFrame {
                 armadurareal.setIcon(personaje.armadura);
                         
                 JLabel fondo = new JLabel("");
-		fondo.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/fondo3.png")));
+		fondo.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/fondo2.png")));
 		fondo.setBounds(0, 0, 670, 492);
 		contentPane.add(fondo);
+                
                 JButton volver = new JButton("Volver");
                 volver.setBounds(20, 400, 100, 30);
                 contentPane.add(volver);

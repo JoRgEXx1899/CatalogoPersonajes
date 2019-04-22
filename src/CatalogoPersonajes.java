@@ -47,7 +47,7 @@ public class CatalogoPersonajes extends JFrame {
 		contentPane.setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		JLabel lblSeleccioneUnaClase = new JLabel("SELECCIONA UNA CLASE");
-                lblSeleccioneUnaClase.setForeground(java.awt.Color.white);
+                lblSeleccioneUnaClase.setForeground(java.awt.Color.black);
 		lblSeleccioneUnaClase.setFont(new Font("Castellar", Font.BOLD, 25));
 		lblSeleccioneUnaClase.setBounds(20, 380, 370, 86);
 		contentPane.add(lblSeleccioneUnaClase);             
@@ -109,7 +109,7 @@ public class CatalogoPersonajes extends JFrame {
                 JLabel fondo = new JLabel("");
 		fondo.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/fondo2.png")));
 		fondo.setBounds(0, 0, 670, 492);
-                contentPane.add(fondo); 
+                contentPane.add(fondo);
                 
                
               
