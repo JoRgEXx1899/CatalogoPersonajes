@@ -33,11 +33,11 @@ public class Vista extends JFrame {
                 
                
                 
-		JLabel lblEspecialidad = new JLabel("Tipo:");
+		/*JLabel lblEspecialidad = new JLabel("Tipo:");
 		lblEspecialidad.setFont(new Font("Springtime Sunshine", Font.BOLD, 18));
                 lblEspecialidad.setForeground(java.awt.Color.black);
 		lblEspecialidad.setBounds(30, 30, 75, 26);
-		contentPane.add(lblEspecialidad);
+		contentPane.add(lblEspecialidad);*/
 		
 		JLabel lblVida = new JLabel("Vida:");
 		lblVida.setFont(new Font("Brodway", Font.BOLD, 18));
@@ -120,7 +120,7 @@ public class Vista extends JFrame {
 		contentPane.add(armadurareal);
                 
                 fotopersonaje.setIcon(foto);
-                Especialidadreal.setText(personaje.Especialidad);
+                //Especialidadreal.setText(personaje.Especialidad);
 		Vidareal.setText(personaje.Vida);
 		Escudoreal.setText(personaje.Escudo);
 		Ataquereal.setText(personaje.Ataque);
