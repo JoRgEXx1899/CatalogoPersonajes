@@ -5,6 +5,8 @@
  */
 package armas;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author DANIEL
@@ -18,37 +20,44 @@ public class Arco extends ArmaAbstracta {
         setVelocidadMov(0.95);
         setDistancia_atq(120);
         setRegenVida(0.05);
+        setImagen(new ImageIcon("/resources/armas/arco.png"));
     }
 
     
     @Override
     public void setAtaque(int ataque) {
         this.ataque=ataque;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void setCadencia(double cadencia) {
         this.cadencia = cadencia;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void setVelocidadMov(double velocidadMov) {
         this.velocidadMov = velocidadMov;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void setDistancia_atq(int distancia_atq) {
         this.distancia_atq=distancia_atq;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void setRegenVida(double regenVida) {
         this.regenVida=regenVida;
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+    }
+
+    @Override
+    public void setImagen(ImageIcon imagen) {
+        this.imagen=imagen;
+        
     }
 
 }

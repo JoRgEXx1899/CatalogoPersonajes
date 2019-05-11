@@ -1,4 +1,5 @@
 
+import personajes.FabricaAbstractaPersonaje;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;

@@ -1,3 +1,5 @@
+package personajes;
+
 
 public abstract class FabricaAbstractaPersonaje {
 	

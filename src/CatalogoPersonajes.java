@@ -1,4 +1,8 @@
 
+import personajes.FabricaConcretaOrcos;
+import personajes.FabricaConcretaGuerreros;
+import personajes.FabricaConcretaEnanos;
+import personajes.FabricaAbstractaPersonaje;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.PageAttributes;
