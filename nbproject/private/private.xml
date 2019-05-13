@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/usuario/Documents/GitHub/CatalogoPersonajes/src/PersonajeAbstracto.java</file>
-            <file>file:/C:/Users/usuario/Documents/GitHub/CatalogoPersonajes/src/Orcos.java</file>
-            <file>file:/C:/Users/usuario/Documents/GitHub/CatalogoPersonajes/src/Enanos.java</file>
-            <file>file:/C:/Users/usuario/Documents/GitHub/CatalogoPersonajes/src/Guerrero.java</file>
-            <file>file:/C:/Users/usuario/Documents/GitHub/CatalogoPersonajes/src/CatalogoPersonajes.java</file>
-            <file>file:/C:/Users/usuario/Documents/GitHub/CatalogoPersonajes/src/armas/ArmaAbstracta.java</file>
-            <file>file:/C:/Users/usuario/Documents/GitHub/CatalogoPersonajes/src/FabricaConcretaEnanos.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
