@@ -1,4 +1,8 @@
 
+import armaduras.ArmaduraAbstracta;
+import armaduras.FabricaArmadura;
+import armas.ArmaAbstracta;
+import armas.FabricaArma;
 import personajes.FabricaConcretaOrcos;
 import personajes.FabricaConcretaGuerreros;
 import personajes.FabricaConcretaEnanos;
@@ -12,16 +16,25 @@ import java.awt.event.KeyEvent;
 import javafx.scene.paint.Color;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import personajes.PersonajeAbstracto;
 import sun.font.TrueTypeFont;
 
 public class CatalogoPersonajes extends JFrame {
 
     private JPanel contentPane;
+
     FabricaAbstractaPersonaje fabricador;
+    FabricaArma fabarma = new FabricaArma();
+    FabricaArmadura fabarmadura = new FabricaArmadura();
+
+    ArmaduraAbstracta armadura;
+    ArmaAbstracta arma;
+    PersonajeAbstracto personaje;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -40,73 +53,181 @@ public class CatalogoPersonajes extends JFrame {
 
         this.setResizable(false);
 
-        setBounds(100, 100, 670, 492);
+        setBounds(100, 100, 1100, 510);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        JLabel lblSeleccioneUnaClase = new JLabel("SELECCIONA UNA CLASE");
+
+        JLabel lblSeleccioneUnaClase = new JLabel("SELECCIONE LAS PARTES DE SU PERSONAJE");
         lblSeleccioneUnaClase.setForeground(java.awt.Color.black);
         lblSeleccioneUnaClase.setFont(new Font("Castellar", Font.BOLD, 25));
-        lblSeleccioneUnaClase.setBounds(20, 380, 370, 86);
+        lblSeleccioneUnaClase.setBounds(20, -10, 700, 86);
         contentPane.add(lblSeleccioneUnaClase);
 
-        JButton guerbtn = new JButton("Humanos");
-        guerbtn.addActionListener(new ActionListener() {
+        JLabel lblVida = new JLabel("Vida:");
+        lblVida.setFont(new Font("Brodway", Font.BOLD, 18));
+        lblVida.setForeground(java.awt.Color.black);
+        lblVida.setBounds(800, 50, 250, 25);
+        contentPane.add(lblVida);
+        JLabel lblEscudo = new JLabel("Escudo:");
+        lblEscudo.setFont(new Font("Brodway", Font.BOLD, 18));
+        lblEscudo.setForeground(java.awt.Color.black);
+        lblEscudo.setBounds(800, 75, 250, 25);
+        contentPane.add(lblEscudo);
+        JLabel lblAtaque = new JLabel("Ataque:");
+        lblAtaque.setFont(new Font("Brodway", Font.BOLD, 18));
+        lblAtaque.setForeground(java.awt.Color.black);
+        lblAtaque.setBounds(800, 100, 250, 25);
+        contentPane.add(lblAtaque);
+        JLabel lblCadencia = new JLabel("Cadencia:");
+        lblCadencia.setFont(new Font("Brodway", Font.BOLD, 18));
+        lblCadencia.setForeground(java.awt.Color.black);
+        lblCadencia.setBounds(800, 125, 250, 25);
+        contentPane.add(lblCadencia);
+        JLabel lblVM = new JLabel("Vel. de Mov.:");
+        lblVM.setFont(new Font("Brodway", Font.BOLD, 18));
+        lblVM.setForeground(java.awt.Color.black);
+        lblVM.setBounds(800, 150, 250, 25);
+        contentPane.add(lblVM);
+        JLabel lblRV = new JLabel("Regen. de vida:");
+        lblRV.setFont(new Font("Brodway", Font.BOLD, 18));
+        lblRV.setForeground(java.awt.Color.black);
+        lblRV.setBounds(800, 175, 250, 25);
+        contentPane.add(lblRV);
+        JLabel lblDistA = new JLabel("Distancia de ataque:");
+        lblDistA.setFont(new Font("Brodway", Font.BOLD, 18));
+        lblDistA.setForeground(java.awt.Color.black);
+        lblDistA.setBounds(800, 200, 250, 25);
+        contentPane.add(lblDistA);
+
+        JComboBox<String> Raza;
+        Raza = new javax.swing.JComboBox<>();
+        Raza.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Humano", "Orco", "Enano"}));
+        Raza.setBounds(20, 50, 100, 30);
+        contentPane.add(Raza);
+
+        JLabel imgRaza = new JLabel("");
+        imgRaza.setBounds(30, 103, 370, 350);
+        contentPane.add(imgRaza);
+
+        Raza.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                fabricador = new FabricaConcretaGuerreros();
-                Vista frame = new Vista(fabricador.getPersonaje(1), new ImageIcon(tipo.class.getResource("/resources/1humano.png")));
-                frame.setVisible(true);
+                String raza_seleccionada = Raza.getSelectedItem().toString();
+                if (raza_seleccionada == "Humano") {
+                    fabricador = new FabricaConcretaGuerreros();
+                    personaje = fabricador.getPersonaje();
+                    imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/1humano.png")));
+                } else if (raza_seleccionada == "Orco") {
+                    fabricador = new FabricaConcretaOrcos();
+                    personaje = fabricador.getPersonaje();
+                    imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/orcos.png")));
+                } else if (raza_seleccionada == "Enano") {
+                    fabricador = new FabricaConcretaEnanos();
+                    personaje = fabricador.getPersonaje();
+                    imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/enano2.png")));
+                }
+                lblVida.setText("Vida: " + personaje.getVida());
+                lblEscudo.setText("Escudo: " + personaje.getEscudo());
+                lblAtaque.setText("Ataque: " + personaje.getAtaque());
+                lblCadencia.setText("Cadencia: " + personaje.getCadencia());
+                lblVM.setText("Vel. de Mov.: " + personaje.getVelocidadMov());
+                lblRV.setText("Regen de vida: " + personaje.getRegenVida());
+                lblDistA.setText("Distancia de ataque: " + personaje.getDistancia_atq());
 
             }
 
         });
-        guerbtn.setBounds(50, 50, 100, 30);
-        contentPane.add(guerbtn);
 
-        JButton btnOp = new JButton("Orcos");
-        btnOp.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                fabricador = new FabricaConcretaOrcos();
-                Vista frame = new Vista(fabricador.getPersonaje(1), new ImageIcon(tipo.class.getResource("/resources/orcos.png")));
-                frame.setVisible(true);
+        JComboBox<String> Arma;
+        Arma = new javax.swing.JComboBox<>();
+        Arma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Arco", "Baculo", "Ballesta", "Daga", "Espada", "Espadon", "Manopla", "Mazo"}));
+        Arma.setBounds(200, 50, 100, 30);
+        contentPane.add(Arma);
 
+        JLabel imgArma = new JLabel("");
+        imgArma.setBounds(200, 103, 270, 250);
+        contentPane.add(imgArma);
+
+        Arma.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg1) {
+                String item_seleccionado = Arma.getSelectedItem().toString();
+                if (item_seleccionado == "Arco") {
+                    arma = fabarma.getArma(1);
+                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/arco.png")));
+                } else if (item_seleccionado == "Baculo") {
+                    arma = fabarma.getArma(2);
+                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/baculo.png")));
+                } else if (item_seleccionado == "Ballesta") {
+                    arma = fabarma.getArma(3);
+                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/ballesta.png")));
+                } else if (item_seleccionado == "Daga") {
+                    arma = fabarma.getArma(4);
+                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/daga.png")));
+                } else if (item_seleccionado == "Espada") {
+                    arma = fabarma.getArma(5);
+                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/espada.png")));
+                } else if (item_seleccionado == "Espadon") {
+                    arma = fabarma.getArma(6);
+                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/espadon.png")));
+                } else if (item_seleccionado == "Manopla") {
+                    arma = fabarma.getArma(7);
+                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/manopla.png")));
+                } else if (item_seleccionado == "Mazo") {
+                    arma = fabarma.getArma(8);
+                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/mazo.png")));
+                }
+                personaje.setArma(arma);
+                lblVida.setText("Vida: " + personaje.getVida());
+                lblEscudo.setText("Escudo: " + personaje.getEscudo());
+                lblAtaque.setText("Ataque: " + personaje.getAtaque());
+                lblCadencia.setText("Cadencia: " + personaje.getCadencia());
+                lblVM.setText("Vel. de Mov.: " + personaje.getVelocidadMov());
+                lblRV.setText("Regen de vida: " + personaje.getRegenVida());
+                lblDistA.setText("Distancia de ataque: " + personaje.getDistancia_atq());
             }
+
         });
-        btnOp.setBounds(300, 50, 100, 30);
-        contentPane.add(btnOp);
 
-        JButton btnOp_1 = new JButton("Enanos");
-        btnOp_1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                fabricador = new FabricaConcretaEnanos();
-                Vista frame = new Vista(fabricador.getPersonaje(1), new ImageIcon(tipo.class.getResource("/resources/enano2.png")));
-                frame.setVisible(true);
+        JComboBox<String> Armadura;
+        Armadura = new javax.swing.JComboBox<>();
+        Armadura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Ligera", "Pesada", "Tunica"}));
+        Armadura.setBounds(500, 50, 100, 30);
+        contentPane.add(Armadura);
 
+        JLabel imgArmadura = new JLabel("");
+        imgArmadura.setBounds(500, 103, 370, 350);
+        contentPane.add(imgArmadura);
+
+        Armadura.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                String item_seleccionado = Armadura.getSelectedItem().toString();
+                if (item_seleccionado == "Ligera") {
+                    armadura = fabarmadura.getArmadura(2);
+                    imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/ligera.png")));
+                } else if (item_seleccionado == "Pesada") {
+                    armadura = fabarmadura.getArmadura(1);
+                    imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/pesada.png")));
+                } else if (item_seleccionado == "Tunica") {
+                    armadura = fabarmadura.getArmadura(3);
+                    imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/tunica.png")));
+                }
+                personaje.setArmadura(armadura);
+                lblVida.setText("Vida: " + personaje.getVida());
+                lblEscudo.setText("Escudo: " + personaje.getEscudo());
+                lblAtaque.setText("Ataque: " + personaje.getAtaque());
+                lblCadencia.setText("Cadencia: " + personaje.getCadencia());
+                lblVM.setText("Vel. de Mov.: " + personaje.getVelocidadMov());
+                lblRV.setText("Regen de vida: " + personaje.getRegenVida());
+                lblDistA.setText("Distancia de ataque: " + personaje.getDistancia_atq());
             }
+
         });
-        btnOp_1.setBounds(500, 50, 100, 30);
-        contentPane.add(btnOp_1);
-
-        JLabel human = new JLabel("");
-        human.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/1humano.png")));
-        human.setBounds(30, 103, 370, 350);
-        contentPane.add(human);
-
-        JLabel orc = new JLabel("");
-        orc.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/orcos.png")));
-        orc.setBounds(270, 70, 370, 350);
-        contentPane.add(orc);
-
-        JLabel ena = new JLabel("");
-        ena.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/enano2.png")));
-        ena.setBounds(500, 227, 370, 200);
-        contentPane.add(ena);
 
         JLabel fondo = new JLabel("");
         fondo.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/fondo2.png")));
-        fondo.setBounds(0, 0, 670, 492);
+        fondo.setBounds(0, 0, 1100, 510);
         contentPane.add(fondo);
 
     }

@@ -25,6 +25,27 @@ public abstract class ArmaduraAbstracta {
     public abstract void setRegenVida(double regenVida);
 
     public abstract void setImagen(ImageIcon imagen);
+
+    public int getVida() {
+        return vida;
+    }
+
+    public int getEscudo() {
+        return escudo;
+    }
+
+    public double getVelocidadMov() {
+        return velocidadMov;
+    }
+
+    public double getRegenVida() {
+        return regenVida;
+    }
+
+    public ImageIcon getImagen() {
+        return imagen;
+    }
+    
     
 
     public ArmaduraAbstracta() {

@@ -6,9 +6,9 @@ package personajes;
 public class FabricaConcretaOrcos extends FabricaAbstractaPersonaje {
 
 	@Override
-	PersonajeAbstracto getPersonaje(int ref) {
+	public PersonajeAbstracto getPersonaje() {
 		
-		return new Orcos(ref);
+		return new Orcos();
 	}
 
 }

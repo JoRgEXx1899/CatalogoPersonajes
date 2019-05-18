@@ -27,8 +27,10 @@ public class FabricaArma {
                 return new Espadon();
             case 7:
                 return new Manopla();
-            default:
+            case 8:
                 return new Mazo();
+            default:
+                return new Arco();
         }
     }
 }

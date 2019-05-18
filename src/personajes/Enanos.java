@@ -8,8 +8,8 @@ import javax.swing.ImageIcon;
 
 public class Enanos extends PersonajeAbstracto {
 
-    public Enanos(int ref) {
-        super(ref);
+    public Enanos() {
+        super();
         
         setVida(1100);
         setEscudo(0);
@@ -18,6 +18,7 @@ public class Enanos extends PersonajeAbstracto {
         setVelocidadMov(470);
         setregenVida(0);
         setDistancia_ataque(0);
+        setRaza("enano");
 
     }
 
@@ -57,14 +58,12 @@ public class Enanos extends PersonajeAbstracto {
         this.distancia_atq=distancia_ataque;
     }
 
-    @Override
-    void setArma(ArmaAbstracta arma) {
-        
-    }
+   
 
+    
     @Override
-    void setArmadura(ArmaduraAbstracta armadura) {
-        
+    void setRaza(String raza) {
+        this.raza=raza;
     }
 
 }

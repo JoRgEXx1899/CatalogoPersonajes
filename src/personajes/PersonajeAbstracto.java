@@ -16,11 +16,52 @@ public abstract class PersonajeAbstracto {
     double velocidadMov;
     double regenVida;
     double distancia_atq;
+    String raza;
     
     ArmaAbstracta arma;            //
     ArmaduraAbstracta armadura;
-    
 
+    public String getRaza() {
+        return raza;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public int getEscudo() {
+        return escudo;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public double getCadencia() {
+        return cadencia;
+    }
+
+    public double getVelocidadMov() {
+        return velocidadMov;
+    }
+
+    public double getRegenVida() {
+        return regenVida;
+    }
+
+    public double getDistancia_atq() {
+        return distancia_atq;
+    }
+
+    public ArmaAbstracta getArma() {
+        return arma;
+    }
+
+    public ArmaduraAbstracta getArmadura() {
+        return armadura;
+    }
+    
+    
     abstract void setVida(int nuevaVida);
 
     abstract void setEscudo(int nuevoEscudo);
@@ -35,13 +76,26 @@ public abstract class PersonajeAbstracto {
 
     abstract void setDistancia_ataque(double distancia_ataque);
 
-    abstract void setArma(ArmaAbstracta arma);
+    public void setArma(ArmaAbstracta arma1){
+        this.arma=arma1;
+        ataque=ataque+arma.getAtaque();
+        cadencia+=arma.getCadencia();
+        velocidadMov=velocidadMov*arma.getVelocidadMov();
+        distancia_atq+=arma.getDistancia_atq();
+        regenVida*=arma.getRegenVida();
+    }
 
-    abstract void setArmadura(ArmaduraAbstracta armadura);
+    public void setArmadura(ArmaduraAbstracta armadura1){
+        this.armadura=armadura1;
+        vida+=armadura.getVida();
+        escudo+=armadura.getEscudo();
+        velocidadMov*=armadura.getVelocidadMov();
+        regenVida+=armadura.getRegenVida();
+    }
 
-    
+    abstract void setRaza(String raza);
 
-    public PersonajeAbstracto(int ref) {
+    public PersonajeAbstracto() {
 
     }
 

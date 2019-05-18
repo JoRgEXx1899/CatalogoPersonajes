@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 
 public class Guerrero extends PersonajeAbstracto {
 
-    public Guerrero(int ref) {
-        super(ref);
+    public Guerrero() {
+        super();
         
         setVida(1200);
         setEscudo(0);
@@ -22,6 +22,7 @@ public class Guerrero extends PersonajeAbstracto {
         setVelocidadMov(420);
         setregenVida(0);
         setDistancia_ataque(0);
+        setRaza("humano");
     }
 
     @Override
@@ -60,14 +61,12 @@ public class Guerrero extends PersonajeAbstracto {
         this.distancia_atq=distancia_ataque;
     }
 
-    @Override
-    void setArma(ArmaAbstracta arma) {
-        
-    }
+    
 
+    
     @Override
-    void setArmadura(ArmaduraAbstracta armadura) {
-        
+    void setRaza(String raza) {
+        this.raza=raza;
     }
 
 

@@ -8,8 +8,8 @@ public class FabricaConcretaGuerreros extends FabricaAbstractaPersonaje {
 
 
 	@Override
-	PersonajeAbstracto getPersonaje(int ref) {
-		return new Guerrero(ref);
+	public PersonajeAbstracto getPersonaje() {
+		return new Guerrero();
 	
 	}
 

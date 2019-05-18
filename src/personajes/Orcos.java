@@ -1,17 +1,15 @@
 package personajes;
 
-
 import armaduras.ArmaduraAbstracta;
 import armas.ArmaAbstracta;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
-
 public class Orcos extends PersonajeAbstracto {
 
-    public Orcos(int ref) {
-        super(ref);
+    public Orcos() {
+        super();
 
         setVida(1400);
         setEscudo(0);
@@ -20,53 +18,50 @@ public class Orcos extends PersonajeAbstracto {
         setVelocidadMov(380);
         setregenVida(0);
         setDistancia_ataque(0);
+        setRaza("orco");
 
     }
 
     @Override
     void setVida(int nuevaVida) {
-        this.vida=nuevaVida;        
+        this.vida = nuevaVida;
     }
 
     @Override
     void setEscudo(int nuevoEscudo) {
-        this.escudo=nuevoEscudo;
-         
+        this.escudo = nuevoEscudo;
+
     }
 
     @Override
     void setAtaque(int nuevoAtaque) {
-        this.ataque=nuevoAtaque;
+        this.ataque = nuevoAtaque;
     }
 
     @Override
     void setCadencia(double cadencia) {
-        this.cadencia=cadencia;
+        this.cadencia = cadencia;
     }
 
     @Override
     void setVelocidadMov(double nuevaVelocidad) {
-        this.velocidadMov=nuevaVelocidad;
+        this.velocidadMov = nuevaVelocidad;
     }
 
     @Override
     void setregenVida(double regenvida) {
-        this.regenVida=regenvida;
+        this.regenVida = regenvida;
     }
 
     @Override
     void setDistancia_ataque(double distancia_ataque) {
-        this.distancia_atq=distancia_ataque;
+        this.distancia_atq = distancia_ataque;
     }
 
-    @Override
-    void setArma(ArmaAbstracta arma) {
-        
-    }
-
-    @Override
-    void setArmadura(ArmaduraAbstracta armadura) {
-        
-    }
     
+
+    @Override
+    void setRaza(String raza) {
+        this.raza = raza;
+    }
 }

@@ -25,6 +25,31 @@ public abstract class ArmaAbstracta {
     public abstract void setRegenVida(double regenVida);
     
     public abstract void setImagen(ImageIcon imagen);
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public double getCadencia() {
+        return cadencia;
+    }
+
+    public double getVelocidadMov() {
+        return velocidadMov;
+    }
+
+    public int getDistancia_atq() {
+        return distancia_atq;
+    }
+
+    public double getRegenVida() {
+        return regenVida;
+    }
+
+    public ImageIcon getImagen() {
+        return imagen;
+    }
+    
     
 
     public ArmaAbstracta() {

@@ -20,7 +20,7 @@ public class Arco extends ArmaAbstracta {
         setVelocidadMov(0.95);
         setDistancia_atq(120);
         setRegenVida(0.05);
-        setImagen(new ImageIcon("/resources/armas/arco.png"));
+        setImagen(new ImageIcon ("/resources/armas/arco.png"));
     }
 
     
