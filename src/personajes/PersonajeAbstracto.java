@@ -62,19 +62,19 @@ public abstract class PersonajeAbstracto {
     }
     
     
-    abstract void setVida(int nuevaVida);
+    public abstract void setVida(int nuevaVida);
 
-    abstract void setEscudo(int nuevoEscudo);
+    public abstract void setEscudo(int nuevoEscudo);
 
-    abstract void setAtaque(int nuevoAtaque);
+    public abstract void setAtaque(int nuevoAtaque);
 
-    abstract void setCadencia(double cadencia);
+    public abstract void setCadencia(double cadencia);
 
-    abstract void setVelocidadMov(double nuevaVelocidad);
+    public abstract void setVelocidadMov(double nuevaVelocidad);
     
-    abstract void setregenVida(double regenvida);
+    public abstract void setregenVida(double regenvida);
 
-    abstract void setDistancia_ataque(double distancia_ataque);
+    public abstract void setDistancia_ataque(double distancia_ataque);
 
     public void setArma(ArmaAbstracta arma1){
         this.arma=arma1;
@@ -93,7 +93,7 @@ public abstract class PersonajeAbstracto {
         regenVida+=armadura.getRegenVida();
     }
 
-    abstract void setRaza(String raza);
+    public abstract void setRaza(String raza);
 
     public PersonajeAbstracto() {
 

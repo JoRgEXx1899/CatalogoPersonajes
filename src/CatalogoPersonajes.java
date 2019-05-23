@@ -29,6 +29,12 @@ public class CatalogoPersonajes extends JFrame {
     private JPanel contentPane;
 
     FabricaAbstractaPersonaje fabricador;
+
+    Director director = new Director();
+    PersonajeBuilder pj_enano = new PjEnanoBuilder(); //BUILDERS
+    PersonajeBuilder pj_humano = new PjHumanoBuilder();
+    PersonajeBuilder pj_orco = new PjOrcoBuilder();
+
     FabricaArma fabarma = new FabricaArma();
     FabricaArmadura fabarmadura = new FabricaArmadura();
 
@@ -114,30 +120,33 @@ public class CatalogoPersonajes extends JFrame {
 
         Raza.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                String raza_seleccionada = Raza.getSelectedItem().toString();
-                if (raza_seleccionada == "Humano") {
-                    fabricador = new FabricaConcretaGuerreros();
-                    personaje = fabricador.getPersonaje();
-                    imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/1humano.png")));
-                } else if (raza_seleccionada == "Orco") {
-                    fabricador = new FabricaConcretaOrcos();
-                    personaje = fabricador.getPersonaje();
-                    imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/orcos.png")));
-                } else if (raza_seleccionada == "Enano") {
-                    fabricador = new FabricaConcretaEnanos();
-                    personaje = fabricador.getPersonaje();
-                    imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/enano2.png")));
+                try {
+                    String raza_seleccionada = Raza.getSelectedItem().toString();
+                    if (raza_seleccionada == "Humano") {
+                        director.personajeBuilder(pj_humano);
+
+                        //fabricador = new FabricaConcretaGuerreros();
+                        personaje = director.getPersonaje();
+                        imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/1humano.png")));
+                    } else if (raza_seleccionada == "Orco") {
+                        director.personajeBuilder(pj_orco);
+
+                        //fabricador = new FabricaConcretaOrcos();
+                        personaje = director.getPersonaje();
+                        imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/orcos.png")));
+                    } else if (raza_seleccionada == "Enano") {
+                        director.personajeBuilder(pj_enano);
+
+                        //fabricador = new FabricaConcretaEnanos();
+                        personaje = director.getPersonaje();
+                        imgRaza.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/enano2.png")));
+                    }
+                    
+
+                } catch (Exception e) {
+
                 }
-                lblVida.setText("Vida: " + personaje.getVida());
-                lblEscudo.setText("Escudo: " + personaje.getEscudo());
-                lblAtaque.setText("Ataque: " + personaje.getAtaque());
-                lblCadencia.setText("Cadencia: " + personaje.getCadencia());
-                lblVM.setText("Vel. de Mov.: " + personaje.getVelocidadMov());
-                lblRV.setText("Regen de vida: " + personaje.getRegenVida());
-                lblDistA.setText("Distancia de ataque: " + personaje.getDistancia_atq());
-
             }
-
         });
 
         JComboBox<String> Arma;
@@ -152,40 +161,38 @@ public class CatalogoPersonajes extends JFrame {
 
         Arma.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg1) {
-                String item_seleccionado = Arma.getSelectedItem().toString();
-                if (item_seleccionado == "Arco") {
-                    arma = fabarma.getArma(1);
-                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/arco.png")));
-                } else if (item_seleccionado == "Baculo") {
-                    arma = fabarma.getArma(2);
-                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/baculo.png")));
-                } else if (item_seleccionado == "Ballesta") {
-                    arma = fabarma.getArma(3);
-                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/ballesta.png")));
-                } else if (item_seleccionado == "Daga") {
-                    arma = fabarma.getArma(4);
-                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/daga.png")));
-                } else if (item_seleccionado == "Espada") {
-                    arma = fabarma.getArma(5);
-                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/espada.png")));
-                } else if (item_seleccionado == "Espadon") {
-                    arma = fabarma.getArma(6);
-                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/espadon.png")));
-                } else if (item_seleccionado == "Manopla") {
-                    arma = fabarma.getArma(7);
-                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/manopla.png")));
-                } else if (item_seleccionado == "Mazo") {
-                    arma = fabarma.getArma(8);
-                    imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/mazo.png")));
+                try {
+                    String item_seleccionado = Arma.getSelectedItem().toString();
+                    if (item_seleccionado == "Arco") {
+                        arma = fabarma.getArma(1);
+                        imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/arco.png")));
+                    } else if (item_seleccionado == "Baculo") {
+                        arma = fabarma.getArma(2);
+                        imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/baculo.png")));
+                    } else if (item_seleccionado == "Ballesta") {
+                        arma = fabarma.getArma(3);
+                        imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/ballesta.png")));
+                    } else if (item_seleccionado == "Daga") {
+                        arma = fabarma.getArma(4);
+                        imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/daga.png")));
+                    } else if (item_seleccionado == "Espada") {
+                        arma = fabarma.getArma(5);
+                        imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/espada.png")));
+                    } else if (item_seleccionado == "Espadon") {
+                        arma = fabarma.getArma(6);
+                        imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/espadon.png")));
+                    } else if (item_seleccionado == "Manopla") {
+                        arma = fabarma.getArma(7);
+                        imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/manopla.png")));
+                    } else if (item_seleccionado == "Mazo") {
+                        arma = fabarma.getArma(8);
+                        imgArma.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/mazo.png")));
+                    }
+                    personaje.setArma(arma);
+                    
+                } catch (Exception e) {
+
                 }
-                personaje.setArma(arma);
-                lblVida.setText("Vida: " + personaje.getVida());
-                lblEscudo.setText("Escudo: " + personaje.getEscudo());
-                lblAtaque.setText("Ataque: " + personaje.getAtaque());
-                lblCadencia.setText("Cadencia: " + personaje.getCadencia());
-                lblVM.setText("Vel. de Mov.: " + personaje.getVelocidadMov());
-                lblRV.setText("Regen de vida: " + personaje.getRegenVida());
-                lblDistA.setText("Distancia de ataque: " + personaje.getDistancia_atq());
             }
 
         });
@@ -202,27 +209,45 @@ public class CatalogoPersonajes extends JFrame {
 
         Armadura.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
-                String item_seleccionado = Armadura.getSelectedItem().toString();
-                if (item_seleccionado == "Ligera") {
-                    armadura = fabarmadura.getArmadura(2);
-                    imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/ligera.png")));
-                } else if (item_seleccionado == "Pesada") {
-                    armadura = fabarmadura.getArmadura(1);
-                    imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/pesada.png")));
-                } else if (item_seleccionado == "Tunica") {
-                    armadura = fabarmadura.getArmadura(3);
-                    imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/tunica.png")));
+                try {
+                    String item_seleccionado = Armadura.getSelectedItem().toString();
+                    if (item_seleccionado == "Ligera") {
+                        armadura = fabarmadura.getArmadura(2);
+                        imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/ligera.png")));
+                    } else if (item_seleccionado == "Pesada") {
+                        armadura = fabarmadura.getArmadura(1);
+                        imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/pesada.png")));
+                    } else if (item_seleccionado == "Tunica") {
+                        armadura = fabarmadura.getArmadura(3);
+                        imgArmadura.setIcon(new ImageIcon(CatalogoPersonajes.class.getResource("/resources/tunica.png")));
+                    }                    
+                    personaje.setArmadura(armadura);
+
+                } catch (Exception e) {
                 }
-                personaje.setArmadura(armadura);
-                lblVida.setText("Vida: " + personaje.getVida());
-                lblEscudo.setText("Escudo: " + personaje.getEscudo());
-                lblAtaque.setText("Ataque: " + personaje.getAtaque());
-                lblCadencia.setText("Cadencia: " + personaje.getCadencia());
-                lblVM.setText("Vel. de Mov.: " + personaje.getVelocidadMov());
-                lblRV.setText("Regen de vida: " + personaje.getRegenVida());
-                lblDistA.setText("Distancia de ataque: " + personaje.getDistancia_atq());
             }
 
+        });
+        JButton armar = new JButton("Armar");
+        armar.setBounds(800, 300, 100, 30);
+        contentPane.add(armar);
+
+        armar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent arg0) {
+                try {
+                    director.construirPersonaje(arma, armadura);
+                    personaje = director.getPersonaje();
+                    lblVida.setText("Vida: " + personaje.getVida());
+                    lblEscudo.setText("Escudo: " + personaje.getEscudo());
+                    lblAtaque.setText("Ataque: " + personaje.getAtaque());
+                    lblCadencia.setText("Cadencia: " + personaje.getCadencia());
+                    lblVM.setText("Vel. de Mov.: " + personaje.getVelocidadMov());
+                    lblRV.setText("Regen de vida: " + personaje.getRegenVida());
+                    lblDistA.setText("Distancia de ataque: " + personaje.getDistancia_atq());
+                } catch (Exception e) {
+
+                }
+            }
         });
 
         JLabel fondo = new JLabel("");

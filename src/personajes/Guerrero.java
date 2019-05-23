@@ -26,38 +26,38 @@ public class Guerrero extends PersonajeAbstracto {
     }
 
     @Override
-    void setVida(int nuevaVida) {
+    public void setVida(int nuevaVida) {
         this.vida=nuevaVida;        
     }
 
     @Override
-    void setEscudo(int nuevoEscudo) {
+    public void setEscudo(int nuevoEscudo) {
         this.escudo=nuevoEscudo;
          
     }
 
     @Override
-    void setAtaque(int nuevoAtaque) {
+    public void setAtaque(int nuevoAtaque) {
         this.ataque=nuevoAtaque;
     }
 
     @Override
-    void setCadencia(double cadencia) {
+    public void setCadencia(double cadencia) {
         this.cadencia=cadencia;
     }
 
     @Override
-    void setVelocidadMov(double nuevaVelocidad) {
+    public void setVelocidadMov(double nuevaVelocidad) {
         this.velocidadMov=nuevaVelocidad;
     }
 
     @Override
-    void setregenVida(double regenvida) {
+    public void setregenVida(double regenvida) {
         this.regenVida=regenvida;
     }
 
     @Override
-    void setDistancia_ataque(double distancia_ataque) {
+    public void setDistancia_ataque(double distancia_ataque) {
         this.distancia_atq=distancia_ataque;
     }
 
@@ -65,7 +65,7 @@ public class Guerrero extends PersonajeAbstracto {
 
     
     @Override
-    void setRaza(String raza) {
+    public void setRaza(String raza) {
         this.raza=raza;
     }
 
