@@ -75,42 +75,42 @@ public class AdaptadorPersonaje extends PersonajeAbstracto {
     }
 
     @Override
-    void setVida(int nuevaVida) {
+    public void setVida(int nuevaVida) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void setEscudo(int nuevoEscudo) {
+    public void setEscudo(int nuevoEscudo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void setAtaque(int nuevoAtaque) {
+    public void setAtaque(int nuevoAtaque) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void setCadencia(double cadencia) {
+    public void setCadencia(double cadencia) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void setVelocidadMov(double nuevaVelocidad) {
+     public void setVelocidadMov(double nuevaVelocidad) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void setregenVida(double regenvida) {
+    public void setregenVida(double regenvida) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void setDistancia_ataque(double distancia_ataque) {
+    public void setDistancia_ataque(double distancia_ataque) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    void setRaza(String raza) {
+    public void setRaza(String raza) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
